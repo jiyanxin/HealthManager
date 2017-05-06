@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jiyanxin.loginui" >
+
+<uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <!--登录界面活动-->
+        <activity android:name=".account.LoginActivity">
+           <intent-filter >
+               <action android:name="android.intent.action.MAIN">
+               </action>
+               <category android:name="android.intent.category.LAUNCHER">
+               </category>
+           </intent-filter>
+        </activity>
+        <!--注册界面活动-->
+        <activity android:name=".account.RegisterActivity"></activity>
+        <!--主界面活动-->
+        <activity android:name=".others.ActivityMain"></activity>
+        <!--“主页”活动-->
+        <activity android:name=".homepage.HomePage"></activity>
+        <!--“状态”活动-->
+        <activity android:name=".states.Heartbeats"></activity>
+        <activity android:name=".states.Temperature"></activity>
+        <activity android:name=".states.OxygenBlood"></activity>
+        <!--“运动”活动-->
+        <activity android:name=".sports.Sports"></activity>
+        <!--“我的”活动-->
+        <activity android:name=".myhome.MyHome"></activity>
+        <!--“我的”系列活动-->
+        <activity android:name=".myhome.ReviseUsername"/>
+        <activity android:name=".myhome.RevisePhone"/>
+        <activity android:name=".myhome.ReviseMail"/>
+        <activity android:name=".myhome.RevisePassword"/>
+        <activity android:name=".myhome.ReviseHeight"/>
+        <activity android:name=".myhome.ReviseWeigh"/>
+
+        <service android:name=".Service.LongRunningService">
+        </service>
+
+        <service
+            android:name="com.example.jiyanxin.loginui.sports.StepService"
+            android:process="com.example.pedometer.step"
+            android:priority="1000">
+            <intent-filter >
+                <!-- 系统启动完成后会调用-->
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_TIME_TICK" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".Service.AlarmReceiver">
+        </receiver>
+        <!--健康管理服务-->
+        <service android:name=".homepage.HealthSumService"></service>
+        <receiver android:name=".homepage.HealthSumAlarmReceiver"></receiver>
+        <!--运动管理服务-->
+        <service android:name=".sports.SportsService"></service>
+        <receiver android:name=".sports.SportsAlarmReceiver"></receiver>
+        <!--心率管理服务-->
+        <service android:name=".states.HeartbeatsService"></service>
+        <receiver android:name=".states.HeartbeatsAlarmReceiver"></receiver>
+        <!--体温管理服务-->
+        <service android:name=".states.TemperatureService"></service>
+        <receiver android:name=".states.TemperatureAlarmReceiver"></receiver>
+        <!--血氧管理服务-->
+        <service android:name=".states.OxygenBloodService"></service>
+        <receiver android:name=".states.OxygenBloodAlarmReceiver"></receiver>
+
+    </application>
+
+</manifest>

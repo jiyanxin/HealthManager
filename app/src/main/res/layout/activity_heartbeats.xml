@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--顶部标题栏-->
+    <com.example.jiyanxin.loginui.states.TopStates
+        android:id="@+id/top_heartbeats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.jiyanxin.loginui.states.TopStates>
+    <!--中间部分-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_heartbeats">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/heartbeat_rate"
+            android:background="@color/white"
+            android:orientation="vertical"
+            >
+            <!--Measure-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="Measure"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/heartbeat"
+                />
+            <!--心跳频率-->
+            <TextView
+                android:id="@+id/heartbeatsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="72"
+                android:textSize="50sp"/>
+            <!--心跳单位-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="次/分钟"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/heartbeat_rate"
+                />
+            <!--数据分析-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="Statistic"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/unit_heartbeats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="单位（次/分）"
+                android:textSize="12sp"
+                android:textAlignment="center"/>
+
+            <com.example.jiyanxin.loginui.viewitem.LineGraphicView
+                android:id="@+id/lineViewHeartbeats"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <com.example.jiyanxin.loginui.viewitem.Analyse
+                android:id="@+id/heartbeat_analyse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp">
+            </com.example.jiyanxin.loginui.viewitem.Analyse>
+
+        </LinearLayout>
+    </ScrollView>
+    <!--底部标题栏-->
+    <com.example.jiyanxin.loginui.viewitem.Bottom
+        android:id="@+id/bottom_heartbeats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    </com.example.jiyanxin.loginui.viewitem.Bottom>
+
+</RelativeLayout>

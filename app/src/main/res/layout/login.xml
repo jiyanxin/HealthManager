@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_login">
+    <!-- padding 内边距 layout 外边距
+    Android：layout_alignParentTop 布局的位置是否处于顶部-->
+
+    <RelativeLayout
+        android:id="@+id/login_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dip"
+        android:layout_margin="15dip"
+        android:background="@drawable/background_login_div">
+
+        <!--账号-->
+        <TextView
+            android:id="@+id/login_user_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/label_username"
+            />
+        <EditText
+            android:id="@+id/username_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username_hint"
+            android:layout_below="@id/login_user_input"
+            android:singleLine="true"
+            android:inputType="text"
+            />
+        <!--密码-->
+        <TextView
+            android:id="@+id/login_password_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username_edit"
+            android:text="@string/login_label_password"
+            />
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_password_input"
+            android:password="true"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            />
+
+
+        <CheckBox
+            android:id="@+id/remember_pwd"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/password_edit"
+            android:layout_marginLeft="40dp"
+            android:text="记住密码"
+            />
+        <CheckBox
+            android:id="@+id/auto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password_edit"
+            android:layout_toRightOf="@id/remember_pwd"
+            android:layout_marginLeft="50dp"
+            android:text="自动登录"/>
+        <!--登录button-->
+        <Button
+            android:id="@+id/signin_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/remember_pwd"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="false"
+            android:text="@string/login_label_signin"
+            android:background="@drawable/button"/>
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </WebView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/qregister"
+            android:text="@string/qregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"/>
+        <TextView
+            android:id="@+id/register_link"
+            android:text="@string/login_register_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/qregister"
+            android:layout_marginLeft="15dp"
+            android:textColor="#888"
+
+            />
+        <ImageView
+            android:id="@+id/miniTwitter_logo"
+            android:src="@drawable/health_login"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_below="@id/qregister"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            />
+    </RelativeLayout>
+</LinearLayout>

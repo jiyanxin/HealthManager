@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!--顶部标题栏-->
+    <com.example.jiyanxin.loginui.viewitem.TopTitle
+        android:id="@+id/top_states"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.jiyanxin.loginui.viewitem.TopTitle>
+    <!--中间部分-->
+    <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@id/top_states"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@android:id/tabhost"
+        android:background="@color/background"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TabWidget
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabs"
+                >
+            </TabWidget>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabcontent"
+                >
+                <!--心跳检测-->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/heartbeat_rate"
+                            android:background="@color/white"
+                            android:orientation="vertical"
+                            >
+                            <!--Measure-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:text="Measure"
+                                android:textSize="20sp"/>
+
+                            <ImageView
+                                android:layout_width="300dp"
+                                android:layout_height="200dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/heartbeat"
+                                />
+                            <!--心跳频率-->
+                            <TextView
+                                android:id="@+id/heartbeatsText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:text="72"
+                                android:textSize="50sp"/>
+                            <!--心跳单位-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:text="次/分钟"
+                                android:textSize="15sp"/>
+
+                            <ImageView
+                                android:layout_width="300dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/heartbeat_rate"
+                                />
+                            <!--数据分析-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:text="Statistic"
+                                android:textSize="20sp"/>
+                            
+                            <com.example.jiyanxin.loginui.viewitem.LineGraphicView
+                                android:id="@+id/lineViewHeartbeats"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" />
+
+                            <com.example.jiyanxin.loginui.viewitem.Analyse
+                                android:id="@+id/heartbeat_analyse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="50dp">
+                            </com.example.jiyanxin.loginui.viewitem.Analyse>
+
+                        </LinearLayout>
+                </ScrollView>
+                <!--体温检测-->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/temperature"
+                        android:background="@color/background"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="Measure"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/weatherglass"
+                            />
+
+                        <TextView
+                            android:id="@+id/temperatureText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="37.5"
+                            android:textSize="50sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="摄氏度/℃"
+                            android:textSize="15sp"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/temperature"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="Statistic"
+                            android:textSize="20sp"/>
+
+                        <com.example.jiyanxin.loginui.viewitem.LineGraphicView
+                            android:id="@+id/lineViewTemperature"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp" />
+
+                        <com.example.jiyanxin.loginui.viewitem.Analyse
+                            android:id="@+id/temperature_analyse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="50dp">
+                        </com.example.jiyanxin.loginui.viewitem.Analyse>
+
+                    </LinearLayout>
+                </ScrollView>
+                <!--血氧饱和度检测-->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/oxygen_saturation_of_blood"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="Measure"
+                            android:textSize="20sp"/>
+
+                        <ImageView
+                            android:layout_width="300dp"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/oxygen_blood"
+                            />
+
+                        <TextView
+                            android:id="@+id/oxygenbloodText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="97"
+                            android:textSize="50sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="百分之一/%"
+                            android:textSize="15sp"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/blood"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:text="Statistic"
+                            android:textSize="20sp"/>
+
+                        <com.example.jiyanxin.loginui.viewitem.LineGraphicView
+                            android:id="@+id/lineViewBlood"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp" />
+
+                        <com.example.jiyanxin.loginui.viewitem.Analyse
+                            android:id="@+id/blood_analyse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="50dp">
+                        </com.example.jiyanxin.loginui.viewitem.Analyse>
+
+                    </LinearLayout>
+
+                </ScrollView>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+    <!--底部标题栏-->
+    <com.example.jiyanxin.loginui.viewitem.Bottom
+        android:id="@+id/bottom_states"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    </com.example.jiyanxin.loginui.viewitem.Bottom>
+</RelativeLayout>
+
+

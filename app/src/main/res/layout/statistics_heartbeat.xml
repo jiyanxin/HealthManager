@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@android:id/tabhost"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TabWidget
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@android:id/tabs"
+            android:layout_gravity="bottom"
+            >
+        </TabWidget>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@android:id/tabcontent"
+            >
+            <!--心率/日-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/heartbeat_rate_day"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="日"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/Max_h"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="center"
+                        android:textSize="30sp"
+                        android:text="Max"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@id/Max_h"
+                        android:layout_marginRight="50dp"
+                        android:textSize="30sp"
+                        android:text="Min"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/Max_h"
+                        android:layout_marginLeft="50dp"
+                        android:textSize="30sp"
+                        android:text="Avg"/>
+
+                    <TextView
+                        android:id="@+id/Max_h_v"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Max_h"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:text="157" />
+                    <TextView
+                        android:id="@+id/Min_h_v"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Max_h"
+                        android:layout_toLeftOf="@id/Max_h_v"
+                        android:layout_marginRight="75dp"
+                        android:textSize="20sp"
+                        android:text="57"
+                        />
+                    <TextView
+                        android:id="@+id/Avg_h_v"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Max_h"
+                        android:layout_toRightOf="@id/Max_h"
+                        android:layout_marginLeft="75dp"
+                        android:textSize="20sp"
+                        android:text="81"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <!--心率/月-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/heartbeat_rate_month"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="月"/>
+
+
+
+            </LinearLayout>
+            <!--心率/年-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/heartbeat_rate_year"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="年"/>
+            </LinearLayout>
+
+
+        </FrameLayout>
+    </LinearLayout>
+</TabHost>

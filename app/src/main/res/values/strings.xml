@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HealthManager</string>
+    <string name="label_username">账号</string>
+    <string name="username_hint">手机号</string>
+    <string name="mail_hint">邮箱</string>
+    <string name="height_hint"> * 厘米/cm</string>
+    <string name="weigh_hint"> * 千克/Kg</string>
+    <string name="login_label_password">密码</string>
+    <string name="login_label_signin">登录</string>
+    <string name="login_register_link">注册</string>
+    <string name="qregister">没有账号？</string>
+    <string name="register">注册账号</string>
+    <string name="register_label_password_first">输入密码</string>
+    <string name="rgister_login_label_password_second">确认密码</string>
+    <string name="register_sure">注册</string>
+</resources>
