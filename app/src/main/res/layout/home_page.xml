@@ -36,6 +36,29 @@
                 android:layout_height="240dp"
                 android:layout_below="@id/home_title_realtime"
                 android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/suggestion_text"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/circle_homepage"
+                android:text="Suggestion"
+                android:textAlignment="center"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/suggestion"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/suggestion_text"
+                android:text="suggestion"
+                android:textAlignment="center"
+                android:textSize="18sp"/>
+
             <TextView
                 android:id="@+id/home_title_history"
                 android:layout_marginTop="10dp"
@@ -43,10 +66,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/circle_homepage"
+                android:layout_below="@id/suggestion"
                 android:text="History"
                 android:textAlignment="center"
                 android:textSize="20sp"/>
+
             <TextView
                 android:id="@+id/unit_healthSum"
                 android:layout_width="wrap_content"
@@ -69,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/lineViewSum"
-                android:text="Analyse"
+                android:text="Analysis"
                 android:textSize="20sp"
                 android:textAlignment="center"/>
             <com.example.jiyanxin.loginui.viewitem.Analyse

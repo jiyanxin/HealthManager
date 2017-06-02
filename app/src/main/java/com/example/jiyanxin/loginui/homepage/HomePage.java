@@ -13,6 +13,7 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import com.example.jiyanxin.loginui.PublicData;
 import com.example.jiyanxin.loginui.Statistics;
@@ -37,6 +38,7 @@ public class HomePage extends Activity implements View.OnClickListener{
     private Bottom bottom;
 
     private CircleHomePage circleHomePage;
+    private TextView suggestion;
 
     private LineGraphicView healthSum;
     private ArrayList<Double> yList;
@@ -73,8 +75,17 @@ public class HomePage extends Activity implements View.OnClickListener{
 
             editor.commit();
 
-            healthSumValue = (float)pref.getInt("healthSum",0);
-            circleHomePage.setProgressSync(healthSumValue);
+//            healthSumValue = (float)pref.getInt("healthSum",0);
+//            circleHomePage.setProgressSync(healthSumValue);
+            circleHomePage.setProgressSync(PublicData.tempHealthSum);
+
+            if(""==PublicData.heartSuggestion && ""==PublicData.temperatureSuggestion && ""==PublicData.oxygenSuggestion){
+                suggestion.setText("身体很健康，继续保持！");
+            }else{
+                suggestion.setText(PublicData.heartSuggestion+"\n"+PublicData.temperatureSuggestion+"\n"+PublicData.oxygenSuggestion);
+            }
+
+//            suggestion.setText(PublicData.heartScore+" "+PublicData.temperatureScore+" "+PublicData.oxygenScore);
 
             healthSum.setData(PublicData.yListHealthSum,PublicData.xRawDatasHealthSum,60, 100, 10);
             healthSum.invalidate();
@@ -112,12 +123,13 @@ public class HomePage extends Activity implements View.OnClickListener{
         healthSum = (LineGraphicView) findViewById(R.id.lineViewSum);
         homeAnalyse = (Analyse)findViewById(R.id.home_analyse);
 
+        suggestion = (TextView)findViewById(R.id.suggestion);
+
         circleHomePage = (CircleHomePage)findViewById(R.id.circle_homepage);
         circleHomePage.setMax(100);
         circleHomePage.setProgressSync(healthSumValue);
 
         initLineGraphicView();
-
 
         pref = PreferenceManager.getDefaultSharedPreferences(this);
 

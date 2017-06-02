@@ -40,6 +40,7 @@ public class Heartbeats extends Activity {
     private Analyse heartbeatsAnalyse;
 
     private TextView heartbeatText;
+    private TextView heartStates;
 
     private TopStates topStates;
     private Bottom bottom;
@@ -67,6 +68,8 @@ public class Heartbeats extends Activity {
 
             editor.commit();
             heartbeatText.setText(" "+pref.getInt("heartbeats",0)+" ");
+            heartStates.setText(PublicData.tempHeartbeats_states);
+            heartStates.invalidate();
 
             healthHeartbeats.setData(PublicData.yListHeartbeats,PublicData.xRawDatasHeartbeats,50, 150, 25);
             healthHeartbeats.invalidate();
@@ -111,6 +114,7 @@ public class Heartbeats extends Activity {
         heartbeatsAnalyse = (Analyse)findViewById(R.id.heartbeat_analyse);
 
         heartbeatText = (TextView)findViewById(R.id.heartbeatsText);
+        heartStates = (TextView)findViewById(R.id.heart_states);
 
         initLineGraphicViewHeartbeats();
 

@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Max_h"
         android:layout_toLeftOf="@id/Max_h_v"
-        android:layout_marginRight="75dp"
+        android:layout_marginRight="60dp"
         android:textSize="20sp"
         android:text="57"
         />
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Max_h"
         android:layout_toRightOf="@id/Max_h"
-        android:layout_marginLeft="75dp"
+        android:layout_marginLeft="60dp"
         android:textSize="20sp"
         android:text="81"/>
 

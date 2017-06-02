@@ -36,7 +36,9 @@ public class Temperature extends Activity {
     private ArrayList<Double> yListTemperature;
     private ArrayList<String> xRawDatasTemperature;
     private Analyse temperatureAnalyse;
+
     private TextView temperatureText;
+    private TextView temperatureStates;
 
     private TopStates topStates;
     private Bottom bottom;
@@ -64,6 +66,8 @@ public class Temperature extends Activity {
 
             editor.commit();
             temperatureText.setText(" "+pref.getFloat("temperature",0)+" ");
+            temperatureStates.setText(PublicData.tempTemperature_states);
+            temperatureStates.invalidate();
 
             healthTemperature.setData(PublicData.yListTemperature,PublicData.xRawDatasTemperature,35, 42, 1);
             healthTemperature.invalidate();
@@ -108,6 +112,7 @@ public class Temperature extends Activity {
         temperatureAnalyse = (Analyse)findViewById(R.id.temperature_analyse);
 
         temperatureText = (TextView)findViewById(R.id.temperatureText);
+        temperatureStates = (TextView)findViewById(R.id.temperature_states);
 
         initLineGraphicViewTemperature();
 

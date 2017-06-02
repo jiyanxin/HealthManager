@@ -47,7 +47,7 @@ public class TemperatureService extends Service {
         }).start();
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 5 * 1000; // 这是一小时的毫秒数
+        int anHour = 10 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, TemperatureAlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
@@ -65,6 +65,7 @@ public class TemperatureService extends Service {
 
         while (flag == 0) {
             double r = random.nextDouble();
+
             if (0.35 < r && r < 0.420) {
                 flag = 1;
                 String number = df.format(r * 100);
@@ -109,5 +110,31 @@ public class TemperatureService extends Service {
 
         PublicData.maxTemperature= statistics.getMaxDouble(PublicData.yListTemperature);
         PublicData.minTemperature = statistics.getMinDouble(PublicData.yListTemperature);
+        /****************体温*****************/
+        double temperature;
+        temperature = PublicData.yListTemperature.get(PublicData.NyTemperature-1);
+        if(temperature<=36.2){
+            PublicData.tempTemperature_states = "低温";
+            PublicData.temperatureSuggestion = "体温过低，及时就医检查;";
+        }else if(temperature>36.3 && temperature<=37.2){
+            PublicData.tempTemperature_states = "正常";
+            PublicData.temperatureSuggestion = "";
+        }else if(temperature>37.2 && temperature<=38){
+            PublicData.tempTemperature_states = "低热";
+            PublicData.temperatureSuggestion = "低烧，及时就医检查;";
+        }else if(temperature>38 && temperature<=39){
+            PublicData.tempTemperature_states = "中度发热";
+            PublicData.temperatureSuggestion = "中度发烧，及时就医检查;";
+        }else{
+            PublicData.tempTemperature_states = "高热";
+            PublicData.temperatureSuggestion = "高烧，及时就医检查;";
+        }
+
+        if(temperature<37){
+            PublicData.temperatureScore = (37-temperature)/2*15+15;
+        }else{
+            PublicData.temperatureScore = (temperature-37)/5*15+15;
+        }
+
     }
 }

@@ -47,7 +47,7 @@ public class OxygenBloodService extends Service {
         }).start();
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 5 * 1000; // 这是一小时的毫秒数
+        int anHour = 10 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, OxygenBloodAlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
@@ -109,5 +109,23 @@ public class OxygenBloodService extends Service {
 
         PublicData.maxOxygenBlood= statistics.getMaxDouble(PublicData.yListOxygenBlood);
         PublicData.minOxygenBlood = statistics.getMinDouble(PublicData.yListOxygenBlood);
+        /****************血氧饱和度*****************/
+        double oxygenBlood;
+        oxygenBlood = PublicData.yListOxygenBlood.get(PublicData.NyOxygenBlood-1);
+        if(oxygenBlood<=90){
+            PublicData.tempOxygenBlood_states = "血氧过低";
+            PublicData.oxygenSuggestion = "血氧过低，呼叫救助。";
+        }else if(oxygenBlood>90 && oxygenBlood<=94){
+            PublicData.tempOxygenBlood_states = "供氧不足";
+            PublicData.oxygenSuggestion = "血氧不足，如果您在室内，请保持空气流通。";
+        }else{
+            PublicData.tempOxygenBlood_states = "正常";
+            PublicData.oxygenSuggestion = "";
+        }
+        if(oxygenBlood<97){
+            PublicData.oxygenScore = (97-oxygenBlood)/12*15+15;
+        }else{
+            PublicData.oxygenScore = (oxygenBlood-97)/3*15+15;
+        }
     }
 }

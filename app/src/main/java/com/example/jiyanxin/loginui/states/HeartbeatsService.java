@@ -47,7 +47,7 @@ public class HeartbeatsService extends Service {
         }).start();
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 5 * 1000; // 这是一小时的毫秒数
+        int anHour = 10 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, HeartbeatsAlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
@@ -109,6 +109,27 @@ public class HeartbeatsService extends Service {
 
         PublicData.maxHeartbeats= statistics.getMaxDouble(PublicData.yListHeartbeats);
         PublicData.minHeartbeats = statistics.getMinDouble(PublicData.yListHeartbeats);
+        /****************心率*****************/
+        double heartbeats;
+        heartbeats = PublicData.yListHeartbeats.get(PublicData.NyHeartbeats-1) ;
+        if(heartbeats<=60){
+            PublicData.tempHeartbeats_states = "窦性心动过缓";
+            PublicData.heartSuggestion = "心跳较慢，及时检查身体；";
+        }else if(heartbeats>60 && heartbeats<=95){
+            PublicData.tempHeartbeats_states = "正常";
+            PublicData.heartSuggestion = "";
+        }else if(heartbeats>95 && heartbeats<=160){
+            PublicData.tempHeartbeats_states = "窦性心动过速";
+            PublicData.heartSuggestion = "心跳较快，避免剧烈运动；";
+        }else{
+            PublicData.tempHeartbeats_states = "阵发性心动过速";
+            PublicData.heartSuggestion = "心跳过快，呼叫紧急电话；";
+        }
+        if(heartbeats<75){
+            PublicData.heartScore = (75-heartbeats)/35*20+20;
+        }else{
+            PublicData.heartScore = (heartbeats-75)/125*20+20;
+        }
     }
     
 }

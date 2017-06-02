@@ -55,6 +55,25 @@
                 android:text="摄氏度/℃"
                 android:textSize="15sp"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="体温健康状态"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/temperature_states"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="体温状态"
+                android:textSize="18sp"/>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"

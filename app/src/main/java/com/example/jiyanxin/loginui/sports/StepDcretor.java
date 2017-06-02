@@ -136,8 +136,9 @@ public class StepDcretor implements SensorEventListener {
             if (DetectorPeak(values, gravityOld)) {
                 timeOfLastPeak = timeOfThisPeak;
                 timeOfNow = System.currentTimeMillis();
-                if (timeOfNow - timeOfLastPeak >= 200
-                        && (peakOfWave - valleyOfWave >= ThreadValue) && timeOfNow - timeOfLastPeak <= 2000) {
+                if (timeOfNow - timeOfLastPeak >= 200 &&
+                        (peakOfWave - valleyOfWave >= ThreadValue) &&
+                            timeOfNow - timeOfLastPeak <= 2000) {
                     timeOfThisPeak = timeOfNow;
                     //更新界面的处理，不涉及到算法
                     preStep();

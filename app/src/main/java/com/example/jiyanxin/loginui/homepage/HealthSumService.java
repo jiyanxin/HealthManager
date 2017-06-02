@@ -47,7 +47,7 @@ public class HealthSumService extends Service {
         }).start();
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 5 * 1000; // 这是一小时的毫秒数
+        int anHour = 10 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, HealthSumAlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
@@ -109,5 +109,30 @@ public class HealthSumService extends Service {
 
         PublicData.maxHealthSum= statistics.getMaxDouble(PublicData.yListHealthSum);
         PublicData.minHealthSum = statistics.getMinDouble(PublicData.yListHealthSum);
+
+        /****************健康综合*****************/
+//        double temperature;
+//        temperature = PublicData.yListTemperature.get(PublicData.NyTemperature-1);
+//        double oxygenBlood;
+//        oxygenBlood = PublicData.yListOxygenBlood.get(PublicData.NyOxygenBlood-1);
+//        double heartbeats;
+//        heartbeats = PublicData.yListHeartbeats.get(PublicData.NyHeartbeats-1) ;
+//        double  heartSoces,temperatureSoces,oxygenSoces;
+//        if(heartbeats<75){
+//            heartSoces = (75-heartbeats)/35*40;
+//        }else{
+//            heartSoces = (heartbeats-75)/125*40;
+//        }
+//        if(temperature<37){
+//            temperatureSoces = (37-temperature)/2*30;
+//        }else{
+//            temperatureSoces = (temperature-37)/5*30;
+//        }
+//        if(oxygenBlood<97){
+//            oxygenSoces = (97-oxygenBlood)/12*30;
+//        }else{
+//            oxygenSoces = (oxygenBlood-97)/3*30;
+//        }
+        PublicData.tempHealthSum = (int)(PublicData.oxygenScore+PublicData.temperatureScore+PublicData.heartScore);
     }
 }

@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/lineViewSports"
-                android:text="Analyse"
+                android:text="Analysis"
                 android:textSize="20sp"
                 android:textAlignment="center"/>
             <com.example.jiyanxin.loginui.viewitem.Analyse

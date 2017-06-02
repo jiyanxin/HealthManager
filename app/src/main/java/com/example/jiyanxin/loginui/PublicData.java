@@ -44,9 +44,12 @@ public class PublicData {
     public static int NyHeartbeats= (NxHeartbeats - 1) * NxyHeartbeats + 1;
     public static int NbaseHeartbeats = 1;
     public static int tempHeartbeats=0;
+    public static String tempHeartbeats_states;
     public static double maxHeartbeats;
     public static double minHeartbeats;
     public static double argHeartbeats;
+    public static double heartScore;
+    public static String heartSuggestion;
 
     /****************体温综合********************/
     public static ArrayList<Double> yListTemperature = new ArrayList<>();
@@ -56,9 +59,12 @@ public class PublicData {
     public static int NyTemperature = (NxTemperature - 1) * NxyTemperature + 1;
     public static int NbaseTemperature = 1;
     public static int tempTemperature=0;
+    public static String tempTemperature_states;
     public static double maxTemperature;
     public static double minTemperature;
     public static double argTemperature;
+    public static double temperatureScore;
+    public static String temperatureSuggestion;
 
     /****************血氧饱和度综合********************/
     public static ArrayList<Double> yListOxygenBlood = new ArrayList<>();
@@ -68,9 +74,12 @@ public class PublicData {
     public static int NyOxygenBlood = (NxOxygenBlood - 1) * NxyOxygenBlood + 1;
     public static int NbaseOxygenBlood = 1;
     public static int tempOxygenBlood=0;
+    public static String tempOxygenBlood_states;
     public static double maxOxygenBlood;
     public static double minOxygenBlood;
     public static double argOxygenBlood;
+    public static double oxygenScore;
+    public static String oxygenSuggestion;
 
     public static String Number2String(ArrayList<Double> list){
         int i;

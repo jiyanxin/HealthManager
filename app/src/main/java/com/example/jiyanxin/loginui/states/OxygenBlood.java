@@ -36,7 +36,9 @@ public class OxygenBlood extends Activity {
     private ArrayList<Double> yListBlood;
     private ArrayList<String> xRawDatasBlood;
     private Analyse bloodAnalyse;
+
     private TextView oxygenBloodText;
+    private TextView oxygenStates;
 
     private TopStates topStates;
     private Bottom bottom;
@@ -64,6 +66,8 @@ public class OxygenBlood extends Activity {
 
             editor.commit();
             oxygenBloodText.setText(" "+pref.getFloat("oxygenblood",0)+" ");
+            oxygenStates.setText(PublicData.tempOxygenBlood_states);
+
 
             healthBlood.setData(PublicData.yListOxygenBlood,PublicData.xRawDatasOxygenBlood,90,100, 2);
             healthBlood.invalidate();
@@ -107,6 +111,7 @@ public class OxygenBlood extends Activity {
         bloodAnalyse = (Analyse)findViewById(R.id.blood_analyse);
 
         oxygenBloodText = (TextView)findViewById(R.id.oxygenbloodText);
+        oxygenStates = (TextView)findViewById(R.id.oxygen_states);
 
         initLineGraphicViewBlood();
 

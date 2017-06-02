@@ -45,8 +45,8 @@ public class LongRunningService extends Service {
         new Thread(new Runnable() {
             @Override
             public void run() {
-
                 NetConnection();
+//                Analyze();
                 Log.d("LongRunningService", "executed at " + new Date().toString());
             }
         }).start();
@@ -63,7 +63,7 @@ public class LongRunningService extends Service {
         editor.commit();
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 5 * 1000; // 这是一小时的毫秒数
+        int anHour = 10 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, AlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
@@ -111,6 +111,40 @@ public class LongRunningService extends Service {
         editor.commit();
     }
 
+    public void Analyze(){
+        /****************心率*****************/
+        if(PublicData.tempHeartbeats<=60){
+            PublicData.tempHeartbeats_states = "窦性心动过缓";
+        }else if(PublicData.tempHeartbeats>60 && PublicData.tempHeartbeats<=95){
+            PublicData.tempHeartbeats_states = "正常";
+        }else if(PublicData.tempHeartbeats>95 && PublicData.tempHeartbeats<=160){
+            PublicData.tempHeartbeats_states = "窦性心动过速";
+        }else{
+            PublicData.tempHeartbeats_states = "阵发性心动过速";
+        }
+        /****************体温*****************/
+        if(PublicData.tempTemperature<=36.2){
+            PublicData.tempTemperature_states = "低温";
+        }else if(PublicData.tempTemperature>36.3 && PublicData.tempTemperature<=37.2){
+            PublicData.tempTemperature_states = "正常";
+        }else if(PublicData.tempTemperature>37.2 && PublicData.tempTemperature<=38){
+            PublicData.tempTemperature_states = "低热";
+        }else if(PublicData.tempTemperature>38 && PublicData.tempTemperature<=39){
+            PublicData.tempTemperature_states = "中度发热";
+        }else{
+            PublicData.tempTemperature_states = "高热";
+        }
+        /****************血氧饱和度*****************/
+        if(PublicData.tempOxygenBlood<=90){
+            PublicData.tempOxygenBlood_states = "血氧过低";
+        }else if(PublicData.tempOxygenBlood>90 && PublicData.tempOxygenBlood<=94){
+            PublicData.tempOxygenBlood_states = "供氧不足";
+        }else{
+            PublicData.tempOxygenBlood_states = "正常";
+        }
+        /****************健康综合*****************/
+
+    }
 //    public void UpdataHealthSum() {
 //
 //        /**********更新Y数组*********/
